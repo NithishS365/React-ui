@@ -8,7 +8,7 @@ export default function Router()
     <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dash" element = { <Re />} />
-        <Route></Route>
+        <Route> </Route>
     </Routes>    
   )
 }
