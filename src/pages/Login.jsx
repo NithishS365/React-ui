@@ -14,6 +14,12 @@ export const Login = () => {
 
   }
 
+  const [name1,setName1] = useState();
+
+  const typeMe = (e) =>{
+      setName1(e.target.value);
+  }
+
   const [show,setShow] = useState(false);
 
   return (
@@ -29,7 +35,8 @@ export const Login = () => {
           <option>Tirupur</option>
           <option>Salem</option>
         </select>
-
+    `   <label htmlFor="name1" className="block mt-5" >Username<span className="text text-red-700  ">*</span></label>
+        <input onChange={typeMe} id="name1" name="name1" type="text" className="border border-gray-400 mt-2 rounded-xl py-1 pl-2 pr-10" placeholder="Enter Your Name"/> `
         <label htmlFor="email" className="block mt-5" >Email<span className="text text-red-700  ">*</span></label>
         <input id="email" name="email" type="email" className="border border-gray-400 mt-2 rounded-xl py-1 pl-2 pr-10" placeholder="abc@gmail.com"/>    
         <label htmlFor="password" className="block mt-5" >Password<span className="text text-red-700  ">*</span></label>
@@ -42,13 +49,13 @@ export const Login = () => {
 
         <label htmlFor="signedin" className="flex accent-indigo-700 mt-5"><input id="signedin" name="signedin" type="checkbox" /><span className="ml-2 ">Keep me signed in</span></label>   
 
-        <button type="submit" className="bg-indigo-700 text-xl text-white mt-5 px-5 py-1 rounded-2xl cursor-pointer" >Login</button>
+        <button type="submit" className="bg-indigo-700 text-xl text-white mt-5 px-5 py-1 rounded-2xl cursor-pointer" onCl >Login</button>
         </form>
 
     </main>
     <section className=" flex-1 min-h-screen bg-gradient-to-b from-violet-400 to-violet-900 flex flex-col justify-center items-center rounded-bl-[70px]">
       <img src={Logo} alt="logo" className="w-50 mb-10"/>
-      <h1 className="text-5xl text-white opacity-50 font-bold" >Name</h1>
+      <h1 className="text-5xl text-white opacity-50 font-bold" >{name1}</h1>
     </section>
     </div>
     

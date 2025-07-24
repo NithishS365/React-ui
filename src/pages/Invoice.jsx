@@ -16,7 +16,7 @@ export const Invoice = () => {
     <div className="bg-white text-black p-2 w-3/2 rounded shadow-lg">
     <div className='bg-black text-white rounded shadow-lg p-4 flex justify-between'>
       <div>
-        <h2 className="text-xl font-bold uppercase">Sokkai - The Clothing Brand</h2>
+        <h2 className="text-xl font-bold uppercase">G-STore - The PhotoGraphy Brand</h2>
         <p className="text-xs mt-1">Make all checks payable to Maheshwari Kumar</p>
       </div>
 
@@ -32,7 +32,7 @@ export const Invoice = () => {
             <p> {name !=='' ?name:"ALEX"} </p>
             <p> Salem</p>
             <p> Ammapetku RM Colony</p>
-          </div>
+          </div> 
           <div >
           <p><span className="font-bold">Phone:</span> 09842674088</p>
           <p><span className="font-bold">Type:</span> HOME</p>
