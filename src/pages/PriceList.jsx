@@ -1,37 +1,46 @@
 import React from 'react'
 import { Header } from '../components/Header'
-import Poster from "../assets/poster.jpg"
+import { useNavigate } from 'react-router-dom'
+import { Card } from '../components/card'
+import { useState
+  
+ } from 'react'
 
-export const PriceList = () => {
+export const PriceList = ({branch, products,setProducts}) => {
+
+  const updatedcount = (id,count) =>
+  {
+    const updated = products.map((product)=>
+    
+      product.id === id? {...product,quantity:count} : product
+
+    );
+
+    setProducts(updated);
+  };
+
+  const navigate = useNavigate();
+
+  const handleGenerate =  (e) =>
+  {
+    navigate("/dashboard/invoice");
+  }
+
   return (
     <>
-    <Header />
+    <Header pname="Price List" branch={branch} />
 
-    <div className='flex mt-10' >
-      <div className='flex bg-white p-5 '>
-        <div className='flex flex-col mr-20' >
-          <div>
-            <h6 className='text text-lg text-indigo-700 font-bold' >Potrait Frames</h6>
-            <p className='text text-green-400' >A4 Size - 8'x 12'</p>
-          </div>
-          <div className='mt-8'>
-            <h6 className='text text-lg text-indigo-700 font-bold' >Frame Details:</h6>
-            <p>Material High-Quality Wood Finish</p>
-          </div>
-          <div className='mt-8' >
-            <h6 className='text text-green-400 text-2xl font-bold'>Rs.1000              
-            </h6>
-          </div>
-          <div className='flex items-center justify-end' >
-            <button className='bg-indigo-700 px-2 rounded-4xl font-bold text-white me-2' >-</button>
-            <button>1</button>
-            <button className='bg-indigo-700 px-2 rounded-4xl font-bold text-white ml-2'>+</button>
-          </div>
-        </div>
-        <div className='w-44'>
-            <img src={Poster} alt="Poster" />
-        </div>
-      </div>
+    <div className='flex flex-wrap gap-x-4' >
+      {
+        products.map((product)=>
+        (
+                 < Card key={product.id} product={product} updatedcount={updatedcount} />
+
+        ))
+      }
+    </div>
+    <div className='flex justify-end' >
+    <button onClick={handleGenerate} className=" bg-indigo-700 text-md text-white mt-5 px-5 py-1 rounded-2xl cursor-pointer" >Generate Bill</button>    
     </div>
     </>
     )
