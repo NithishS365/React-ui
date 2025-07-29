@@ -9,7 +9,7 @@ export const Invoice = ({branch, products,setProducts}) => {
         setName(e.target.value);
     }
 
-    const handleclick = (e) =>
+    const handleclick = (e) =>  
     {
       e.preventDefault();
       const invoice = document.getElementById('in');
